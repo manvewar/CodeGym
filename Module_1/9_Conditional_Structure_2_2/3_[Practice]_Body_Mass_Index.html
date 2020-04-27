@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Body Mass Index</title>
+</head>
+<body>
+
+<script>
+    let bmi_target = document.getElementById("bmi");
+    let inter = document.getElementById("inter");
+    let weight = prompt ("Your weight (kg)");
+    let height = prompt ("Your height (cm)");
+    let height_meter = height/100;
+    let bmi_value = weight /(height_meter * height_meter);
+    bmi_target.innerHTML = bmi_value;
+
+    if(bmi_value < 18.5){
+        inter.innerHTML = "Underweight"
+    } else if (bmi_value >= 18.5 && bmi_value < 25){
+        inter.innerHTML = "Normal";
+    } else if (bmi_value >= 25 && bmi_value < 30){
+        inter.innerHTML = "OverWeight";
+    } else {
+        inter.innerHTML = "Obese";
+    }
+
+</script>
+</body>
+</html>
