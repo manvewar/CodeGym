@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tham khảo code Phú</title>
+</head>
+<body>
+
+<div class="calculator">
+    <div class ="calculator_display">0</div>
+    <div class = "calculator_keys">
+        <button class = "key--operator" data-action="add">+</button>
+        <button class = "key--operator" data-action=substract">-</button>
+        <button class = "key--operator" data-acion="multiply">&times</button>
+        <button class = "key--operator" data-action="divide">÷</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class = "key--equal" data-action = "calculate">=</button>
+        <button>5</button>
+        <button>6</button>
+        <button>4</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>0</button>
+        <button data-action = "decimal">.</button>
+        <button data-action = "clear">AC</button>
+
+
+    </div>
+</div>
+
+<script>
+    const calculator = document.querySelector(".calculator_keys");
+
+    keys.addEventListener('click', function(ev){
+        if (ev.target.matches("button")){
+            const key = ev.target;
+            const action = key.dataset.action;
+            let textContent = key.textContent;
+            let displayedNum = display.textContent;
+
+            Array.from(key.parentNode.children).forEach(key => { key.classList.remove("is depressed");
+                {);
+            if (!action){
+                console.log("Number Key");
+                if(displayedNum == '0' || calculator.dataset.operator='operator'){
+                    display.textContent = textContent;
+                    calculator.dataset.operator = "";
+                } else {
+                    display.textContent = displayedNum+ textContent;
+                }
+            }
+            if (action == 'add'|| action =='substract' || action=='multiply' || action =='divide'){
+                console.log("operator key");
+                key.classList.add("is-depressed");
+                calculator.dataset.operator = "operator";
+                calculator.dataset.firstNumber= displayedNum;
+                calculator.dataset.calc=action;
+            }
+            if (action == "decimal"){
+                console.log("decimal key");
+                if (displayedNum.includes(".")){
+                } else{
+                    display.textContent = displayedNum + ".";
+                }
+            }
+            if (action =='clear'){
+                console.log("Clear Key");
+                display.textContent = "0";
+            }
+            if (action == 'calculate'){
+                console.log("calculate key");
+                const firstNumber = calculator.dataset.firstNumber;
+                const secondNumber = displayedNum;
+                const cal = calculator.dataset.calc;
+                if (firstNumber =='0' || secondNumber == '0'|| cal){
+                    display.textContent=calc(firstNumber,cal,secondNumber);
+                } else{
+                    alert ("Please typing any number");
+                }
+            }
+            })
+        }
+            }
+
+    }
+
+
+</script>
+
+</body>
+</html>
