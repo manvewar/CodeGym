@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard Event</title>
+</head>
+<body>
+
+<div id = "move target">
+    <img src="download.jpg" id="ball" alt="">
+</div>
+
+<script>
+    let move_target = document.getElementById("move_target");
+
+    window.addEventListener('keydown', function(ev){
+
+        let code = ev.keyCode;
+        let key_string = ev.key;
+        let target_style = getComputedStyle(move_target);
+        let current_top_position = parseInt(target_style.top);
+        let current_left_position = parseInt(target_style.left);
+
+        console.log(key_string);
+
+        if (key_string === 'ArrowUp'){
+            current_top_position -=5;
+            move_target.style.top = current_top_position + "px";
+        }
+        if (key_string === 'ArrowRight'){
+            current_left_position +=5;
+            move_target.style.left = current_left_position + "px";
+        }
+        if (key_string === 'ArrowDown'){
+            current_top_position +=5;
+            move_target.style.top = current_top_position + "px";
+        }
+        if (key_string === 'ArrowLeft'){
+            current_left_position -=5;
+            move_target.style.left = current_left_position + "px";
+        }
+    })
+
+</script>
+</body>
+</html>
