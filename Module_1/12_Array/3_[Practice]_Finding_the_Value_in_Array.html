@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm giá trị trong mảng</title>
+</head>
+<body>
+
+<script>
+    let value = prompt("Enter a number:");
+    // Nhập giá trị cần tìm từ hộp thoại và lưu vào biến value
+
+    let x = [-3, 5, 1, 3, 2, 10];
+    // Khai báo mảng x và khởi tạo giá trị ban đầu cho mảng
+
+
+        for(let i = 0; i < x.length; i++){
+            if (value == x[i]){
+                alert("Value" + x[i] +"found at" + i);
+            } else {
+                alert("Không tìm được nhé");
+            }
+        }
+
+    // Dùng vòng lặp duyệt toàn bộ mảng x. Kiểm tra nếu một phần tử trong mảng x bằng giá trị được nhập vào thì hiển thị thông báo
+
+</script>
+
+</body>
+</html>
